@@ -1,0 +1,17 @@
+`timescale 1ns/1ps
+module tb_half_suntractor;
+reg [3:0] A,b;
+wire [3:0] Diff;
+wire Borr;
+
+half_subtractor dut(.A(A),.B(B),.Diff(Diff),.Borr(Borr));
+
+initial begin
+A=4'b0000; b=4'b0000; #10;
+$display("A=%b; B=%b; Diff=%d; Borr=%b",A,B,Diff,Borr);
+A=4'b0011; b=4'b0001; #10;
+$display("A=%b; B=%b; Diff=%d; Borr=%b",A,B,Diff,Borr);
+#50;
+$finish;
+end
+endmodule
